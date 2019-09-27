@@ -16,6 +16,29 @@
         <h1>Trains</h1>
     </div>
     <div class="container">
+
+        <nav class="navbar navbar-light bg-light pl-5 border">Current Employees</nav>
+        <div class="border add-data mb-4">
+            <table>
+                <tr class="row">
+                    <th class="col-sm-2 col-lg-2" id="name-head">Train Name</th>
+                    <th class="col-sm-2 col-lg-2" id="dest-head">Destination</th>
+                    <th class="col-sm-2 col-lg-2" id="frst-train-head">First Train</th>
+                    <th class="col-sm-2 col-lg-2" id="freq-head">Frequency</th>
+                    <th class="col-sm-2 col-lg-2" id="next-arr-head">Next Arrival</th>
+                    <th class="col-sm-2 col-lg-2" id="min-awy-head">Minutes Away</th>
+                </tr>
+                <tr class="row">
+                    <td class="col-sm-2 col-lg-2" id="train-name-target"></td>
+                    <td class="col-sm-2 col-lg-2" id="destination-target"></td>
+                    <td class="col-sm-2 col-lg-2" id="first-train-target"></td>
+                    <td class="col-sm-2 col-lg-2" id="frequency-target"></td>
+                    <td class="col-sm-2 col-lg-2" id="next-arrival-target"></td>
+                    <td class="col-sm-2 col-lg-2" id="minutes-away-target"></td>
+                </tr>
+            </table>
+        </div>
+        <br>
         <nav class="navbar navbar-light bg-light pl-5 border">Add Train</nav>
         <div class="border add-body">
             <form class="p-5">
@@ -35,7 +58,7 @@
                     <label for="frequency">Frequency</label>
                     <input type="text" class="form-control" id="frequency">
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" id="submit-btn">Submit</button>
             </form>
         </div>
     </div>
