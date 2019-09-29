@@ -49,8 +49,8 @@ $("#submit-btn").on("click", function (event) {
     Destination: destination,
     FirstTrain: firstTrainTime,
     Frequency: frequency,
-    NextArrival: nextArr,
-    MinutesAway: minAway
+    // NextArrival: nextArr,
+    // MinutesAway: minAway
   });
 
   // Empty form values:
@@ -93,12 +93,23 @@ database.ref().on("child_added", function (childSnapshot) {
   console.log(tMin);
   
   // Post data to DOM:
-  $('#train-name-target').append(childSnapshot.val().Train);
-  $('#destination-target').append(childSnapshot.val().Destination);
-  $('#first-train-target').append(childSnapshot.val().FirstTrain);
-  $('#frequency-target').append(childSnapshot.val().Frequency);
-  $('#next-arrival-target').append(childSnapshot.val().NextArrival);
-  $('#minutes-arrival-target').append(childSnapshot.val().MinutesAway);
+  let newRow = $("<tr>").append(
+    $("<td>").text(childSnapshot.val().Train),
+    $("<td>").text(childSnapshot.val().Destination),
+    $("<td>").text(childSnapshot.val().FirstTrain),
+    $("<td>").text(childSnapshot.val().Frequency),
+    $("<td>").text(tArrival),
+    $("<td>").text(tMin)
+  // $('#train-name-target').append(childSnapshot.val().Train);
+  // $('#destination-target').append(childSnapshot.val().Destination);
+  // $('#first-train-target').append(childSnapshot.val().FirstTrain);
+  // $('#frequency-target').append(childSnapshot.val().Frequency);
+  // $('#next-arrival-target').append(childSnapshot.val().NextArrival);
+  // $('#minutes-arrival-target').append(childSnapshot.val().MinutesAway);
+  );
+
+  // Append the new row to the table
+  $("#my-table > tbody").append(newRow);
 
   //If errors occur:
 }, function (errorObject) {
