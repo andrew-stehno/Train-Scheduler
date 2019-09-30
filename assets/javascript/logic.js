@@ -32,16 +32,6 @@ $("#submit-btn").on("click", function (event) {
   firstTrainTime = $("#first-train-time").val().trim();
   frequency = $("#frequency").val().trim();
 
-  // Mathmatical calculations:
-  
-  
-  // compare first train time to now in 24 hour time
-  // is new train time > or < now
-  // if new train time is > now, next arrival = difference of two
-  // if new train time is < now, what is the %(frequency) of the difference?
-  // next arrival would = % + frequency
-
-
   //Push to Firebase:
   database.ref().push({
 
@@ -57,7 +47,7 @@ $("#submit-btn").on("click", function (event) {
   $("#train-name").val("");
   $("#destination").val("");
   $("#first-train-time").val("");
-  $("#frequency").val("cd");
+  $("#frequency").val("");
 });
 
 // Firebase listener:
@@ -100,12 +90,6 @@ database.ref().on("child_added", function (childSnapshot) {
     $("<td>").text(childSnapshot.val().Frequency),
     $("<td>").text(tArrival),
     $("<td>").text(tMin)
-  // $('#train-name-target').append(childSnapshot.val().Train);
-  // $('#destination-target').append(childSnapshot.val().Destination);
-  // $('#first-train-target').append(childSnapshot.val().FirstTrain);
-  // $('#frequency-target').append(childSnapshot.val().Frequency);
-  // $('#next-arrival-target').append(childSnapshot.val().NextArrival);
-  // $('#minutes-arrival-target').append(childSnapshot.val().MinutesAway);
   );
 
   // Append the new row to the table

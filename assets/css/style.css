@@ -1,0 +1,21 @@
+.jumbotron {
+    background-image: url(../images/rails-2476467_1920\ copy.jpg);
+    background-size: cover;
+}
+
+h1 {
+    color: white;
+}
+
+body {
+    background-color: #F1F2F2;
+}
+
+nav {
+    background-color: royalblue;
+}
+
+.bgc {
+    background-color: white;
+}
+
