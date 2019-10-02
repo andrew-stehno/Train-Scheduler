@@ -32,16 +32,15 @@ $("#submit-btn").on("click", function (event) {
   firstTrainTime = $("#first-train-time").val().trim();
   frequency = $("#frequency").val().trim();
 
-  //Push to Firebase:
-  database.ref().push({
+  let newTrain = {
+  Train: trainName,
+  Destination: destination,
+  FirstTrain: firstTrainTime,
+  Frequency: frequency
+  }
 
-    Train: trainName,
-    Destination: destination,
-    FirstTrain: firstTrainTime,
-    Frequency: frequency,
-    // NextArrival: nextArr,
-    // MinutesAway: minAway
-  });
+  //Push to Firebase:
+  database.ref().push(newTrain);
 
   // Empty form values:
   $("#train-name").val("");
@@ -83,7 +82,7 @@ database.ref().on("child_added", function (childSnapshot) {
   console.log(tMin);
   
   // Post data to DOM:
-  let newRow = $("<tr>").append(
+  const newRow = $("<tr>").append(
     $("<td>").text(childSnapshot.val().Train),
     $("<td>").text(childSnapshot.val().Destination),
     $("<td>").text(childSnapshot.val().FirstTrain),
